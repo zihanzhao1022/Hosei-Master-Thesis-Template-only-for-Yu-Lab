@@ -1,0 +1,337 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hosei University Master's Thesis Template
+% LaTeX Template
+% Version 1.0 (15/05/2025)
+% 
+% 
+% This template is based on the template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+% Johannes Böttcher (http://www.latextemplates.com/template/masters-doctoral-thesis)
+% University of Hong Kong Masters/Doctoral Thesis (https://www.overleaf.com/latex/templates/hku-master-slash-doctoral-thesis-template/fstdrzngtktt)
+% 
+%
+% Template license:
+% CC BY-NC-ND 4.0 (https://creativecommons.org/licenses/by-nc-nd/4.0/)
+%
+% Author:  Zihan ZHAO
+% Contact: zihan.zhao.4t@stu.hosei.ac.jp
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[hyphens,
+10pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+onehalfspacing, % Single line spacing (singlespacing), alternatives: onehalfspacing or doublespacing
+% draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+% nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+% consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{HoseiThesis} % The class file specifying the document structure
+
+\RequirePackage{xcolor}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{fontawesome} % Awesome symbol for usage
+\usepackage{wrapfig} % Add enbedded figure in the text
+\usepackage{tikz} % Add the signature figure overlap the text
+% \usepackage[labelformat=simple]{subcaption} % Add multiple subfigures in a figure environment
+% \captionsetup{justification=justified, margin=0pt}
+% \renewcommand\thesubfigure{(\Alph{subfigure})} % change the image numbering and reference link to (A),(B),(C), ...... format
+
+\usepackage{mathpazo} % Use the Palatino font by default
+% \usepackage[backend=bibtex,style=alphabetic,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[
+natbib=true,
+maxbibnames=99,
+giveninits=true,
+style=ieee,
+backend=biber
+]{biblatex}
+\defbibheading{Bibliography}{
+  \section*{References}
+  \markboth{References}{References}
+}
+
+\addbibresource{thesis.bib} % The filename of the bibliography
+\addbibresource{bibs/Chapter1.bib}
+\addbibresource{bibs/Chapter2.bib}
+\addbibresource{bibs/Chapter3.bib}
+\addbibresource{bibs/Chapter4.bib}
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+\AtBeginEnvironment{enquote}{\itshape} % change the quote words to italics style
+
+\usepackage{rotating} % Required to add rotated big tables
+
+\usepackage[normalem]{ulem} % Required to add dashed underlines
+
+\setlength\parindent{2em}
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	left=3.5cm, % Left margin
+	right=3.5cm, % Right margin
+	bindingoffset=.5cm, % Binding offset
+	top=2.5cm, % Top margin
+	bottom=2.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+\usepackage{microtype}            % 启用微排版
+\usepackage{adjustbox}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{rotating}
+
+\makeatletter
+% 在 \begin{document} 时，把 emergencystretch 设为 0.1 倍的 \linewidth
+\AtBeginDocument{%
+  \setlength\emergencystretch{0.1\linewidth}%
+  \hfuzz=1pt       % 允许最多 1pt 的小空隙不报错
+  \hbadness=10000   % 阈值以下的不再警告 underfull hbox
+}
+\makeatother
+
+% 可选：全局放宽换行惩罚
+\sloppy
+
+
+% \usepackage{microtype}            % 启用微排版增强
+% \setlength\emergencystretch{1em}   % 在必要时允许每行多拉 1em 的额外空隙
+% \sloppy
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Your Master Thesis Title}
+% Thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+
+\supervisor{Prof. Keping \textsc{Yu}}
+\studentid{Your student id here}
+% Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+
+% \cosupervisor{Prof. Keping \textsc{FamilyName}}
+% Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+% \cosupervisor{Prof. Hayden K.-H. \textsc{So}} % Your supervisor's name, this is used in the title page, print it elsewhere with \cosupname
+
+\examiner{}
+% Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+
+\degree{Master of Engineering (Applied Informatics)}
+% Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+
+\author{Your firstname \textsc{Your Lastname}}
+% The author name, this is used in the title page and abstract, print it elsewhere with \authorname
+
+\addresses{}
+% Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Natural Language Processing}
+% Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+
+\keywords{Light field, high-dimensional convolutional neural network, deep learning}
+% Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+
+\university{Hosei University}
+% Your University's name and URL, this is used in the cover page and abstract, print it elsewhere with \univname
+
+\bsuniversity{Hosei University}
+\msuniversity{Hosei University}
+% Your Bachelor/Master University's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+
+\department{Major in Applied Informatics}
+% Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+
+\group{Laboratory of The Student}
+% Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+
+\faculty{Graduate School of Science and Engineering}
+% Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+
+\hypersetup{
+  colorlinks,
+  linkcolor=darkred,   % 交叉引用（目录、figure/table）保留 darkred
+  urlcolor=darkred,    % URL 链接保留 darkred
+  citecolor=darkred    % 文献引用也保留 darkred
+}
+}
+
+\RenewDocumentCommand{\darkred}{m}{\textbf{#1}}
+% \AtBeginEnvironment{algorithm}{\setstretch{2}}
+\setlength{\algomargin}{1.3ex}
+
+
+%----------------------------------------------------------------------------------------
+%	NEW COMMAND DEFINITION
+%----------------------------------------------------------------------------------------
+\newcommand{\codestyle}[1]{\colorbox{gray!20}{\darkred{#1}}}
+
+% ======================================================================================== %
+%                                        START DOCUMENT
+% ======================================================================================== %
+
+\begin{document}
+
+% \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+
+%----------------------------------------------------------------------------------------
+%	COVER
+%----------------------------------------------------------------------------------------
+
+\input{Covers/cover.tex}
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\input{Copyrights/copyright.tex}
+
+
+\frontmatter
+\tableofcontents % Prints the main table of contents
+
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+\mainmatter
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+\include{Abstract/abstract.tex}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+% \input{Titlepage/titlepage.tex}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+% \input{Declaration/declaration.tex}
+
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+% \input{Dedication/dedication.tex}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+% \mainmatter % Begin numeric (1,2,3...) page numbering
+
+
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{Chapters/Chapter1}
+\include{Chapters/Chapter2}
+\include{Chapters/Chapter3}
+\include{Chapters/Chapter4}
+\include{Chapters/Chapter5}
+\include{Chapters/Chapter6}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+% \chapter*{References}
+% \include{References/References}
+% \addcontentsline{toc}{chapter}{References} 
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+
+
+\printbibliography[title={References}, heading=bibintoc]
+
+
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+\input{Acknowledgments/acknowledgments.tex}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF PUBLICATIONS PAGES
+%----------------------------------------------------------------------------------------
+\input{Publications/publications.tex}
+
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+
+
+% \listoffigures % Prints the list of figures
+
+% \listoftables % Prints the list of tables
+
+% \listofalgorithms % Prints the list of algorithms
+% \addchaptertocentry{\listalgorithmcfname}
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+% \input{Abbreviations/abbreviations.tex}
+
+
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+% \input{Symbols/symbols.tex}
+
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+% \include{Appendices/AppendixA}
+% \include{Appendices/AppendixB}
+% \include{Appendices/AppendixC}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
